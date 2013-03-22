@@ -1,2 +1,2 @@
-. ./aliases.sh
-. ./functions.sh
+. ~/dotfiles/aliases.sh
+. ~/dotfiles/functions.sh
