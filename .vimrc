@@ -1,3 +1,4 @@
+set encoding=utf-8    " Set default encoding to UTF-8
 " Enable 256 colors
 set t_Co=256
 
@@ -10,8 +11,15 @@ set hlsearch
 set showmatch
 " display numbers
 set number
+" indentation
+set smartindent
+set autoindent
 
 set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+" Mark buffers ashidden without asking
+set hidden
 
 " ignore case in search
 set ignorecase
@@ -19,6 +27,13 @@ set ignorecase
 " :e <Tab> <- Filebrowser for new buffers 
 set wildmenu
 set wildignore=*.o,*~,*.pyc,*.aux,*.gz,*.zip,*.pdf
+
+" Show invisibles
+" nmap <leader>l :set list!<CR>
+set list
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+
 
 " new windows:
 " :vnew -> vertical new windows
@@ -34,8 +49,8 @@ let mapleader=","
 execute pathogen#infect()
 
 " mappings
-map <C-r> :NERDTreeToggle<CR>
-map <C-e> :FufCoverageFile<CR>
+map <C-e> :NERDTreeToggle<CR>
+map <C-t> :FufCoverageFile<CR>
 map <C-b> :FufBuffer<CR>
 
 map <leader>w :w<CR>
@@ -53,6 +68,15 @@ map <leader>q :q<CR>
 " map every useful scenario to leader-c
 nmap <leader>c gcc
 vmap <leader>c gc
+
+nmap <leader>l :set list!<CR>
+
+" Enable "normal" indent behaviour
+nmap <leader>< <<
+nmap <leader>> >>
+vmap <leader>< <gv
+vmap <leader>> >gv
+
 
 " Execute shell comand
 " %! date
@@ -76,8 +100,36 @@ vmap <leader>c gc
 " Select the word: viw<esc>
 " Press * to search for the next occurence
 "
+" Select everything between curly braces:
+" vi} The curly brace is the delimiter
+"
+" Select a whole code block:
+" vip (paragraph)
+"
+" Go forward one sentence: ) , backwards: (
+" 
+" Make a marker in a text: ma
+" Jump back to it: 'a
+"
+" lazy autocomplete: ctrl+n
+"
+" == indents stuff according to language style
+"
+" =G indent everything in the whole file (G)
+"
+" g; go back to the last changes
+"
+" ctrl+r redo
+"
+"c{motion} change a selection and go into edit mode. got for the dot command
+"
+"gj -> go one VISUAL line down. dont jump to the next "numbered" line
+"
+" Add a file in NerdTree: m (enter fs menu) a
+" Select everything in a file: gg vG
 colorscheme railscasts
 
 " searchfold.vim settings
 :let g:searchfold_foldlevel = 1 
 ":let g:searchfold_maxdepth = 7
+"
