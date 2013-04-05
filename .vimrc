@@ -64,6 +64,10 @@ imap <leader>Q <esc><leader>Q
 
 map <leader>q :q<CR>
 
+" emulate the cmd+r behaviour (run) for different files:
+autocmd filetype tex,plaintex map <leader>r \ll
+autocmd filetype tex,plaintex map <leader>t :LatexTOCToggle<CR>
+
 " tcomment mappings
 " map every useful scenario to leader-c
 nmap <leader>c gcc

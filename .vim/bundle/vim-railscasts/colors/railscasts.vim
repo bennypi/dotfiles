@@ -46,7 +46,11 @@ hi link htmlTag              xmlTag
 hi link htmlTagName          xmlTagName
 hi link htmlEndTag           xmlEndTag
 
-hi Normal                    guifg=#E6E1DC guibg=#141414 ctermfg=254 ctermbg=NONE
+if has("gui_running")
+	hi Normal     guifg=#E6E1DC guibg=#232323
+else
+	hi Normal                    guifg=#E6E1DC guibg=#141414 ctermfg=254 ctermbg=NONE
+endif
 hi Cursor                    guifg=#000000 ctermfg=0     guibg=#FFFFFF ctermbg=15
 hi CursorLine                guibg=#242424 guifg=NONE    gui=NONE ctermfg=NONE  ctermbg=234 cterm=NONE
 hi CursorCol                 guibg=#333333 guifg=NONE
