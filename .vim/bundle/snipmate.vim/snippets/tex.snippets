@@ -103,7 +103,7 @@ snippet subp
 	% subparagraph $2 (end)
 snippet itd
 	\item[${1:description}] ${2:item}
-snippet figure
+snippet fig
 	${1:Figure}~\ref{${2:fig:}}${3}
 snippet table
 	${1:Table}~\ref{${2:tab:}}${3}
@@ -113,3 +113,21 @@ snippet section
 	${1:Section}~\ref{${2:sec:}}${3}
 snippet page
 	${1:page}~\pageref{${2}}${3}
+snippet *
+	\cdot 
+snippet ol
+	\overline{${1:text}}
+snippet os
+	\overset{\text{${1:text}}{${2:value}}
+snippet sum
+	\sum_{i=${1:start}^${2:end} ${3:term}}
+snippet =
+	\Leftrightarrow 
+snippet ->
+	\Rightarrow 
+snippet 0
+	\emptyset
+snippet lis
+	\begin{lstlisting}{firstline=${1:line}}
+		${2:code}
+		\end{lstlisting}

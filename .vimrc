@@ -8,12 +8,16 @@ set so=7
 set ruler
 " highlight search
 set hlsearch
+" Highlight search matches instantaneously
+set incsearch
 set showmatch
 " display numbers
 set number
 " indentation
 set smartindent
 set autoindent
+
+" change working directory automatically
 
 set tabstop=2
 set shiftwidth=2
@@ -34,6 +38,10 @@ set list
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
+" Nerd Tree ignore files
+let NERDTreeIgnore = ['\.aux$','\.fdb_latexmk$']
+
+
 
 " new windows:
 " :vnew -> vertical new windows
@@ -52,6 +60,8 @@ execute pathogen#infect()
 map <C-e> :NERDTreeToggle<CR>
 map <C-t> :FufCoverageFile<CR>
 map <C-b> :FufBuffer<CR>
+nnoremap <F3> :TlistToggle<CR>
+nnoremap <F4> :MRU<CR>
 
 map <leader>w :w<CR>
 imap <leader>w <esc><C-w>
@@ -67,6 +77,8 @@ map <leader>q :q<CR>
 " emulate the cmd+r behaviour (run) for different files:
 autocmd filetype tex,plaintex map <leader>r \ll
 autocmd filetype tex,plaintex map <leader>t :LatexTOCToggle<CR>
+" change working directory automatically
+autocmd BufEnter * silent! lcd %:p:h
 
 " tcomment mappings
 " map every useful scenario to leader-c
@@ -102,13 +114,16 @@ vmap <leader>> >gv
 "
 " Search for a selected word.
 " Select the word: viw<esc>
-" Press * to search for the next occurence
+" Press * to search for the next occurence or generally: the word under the
+" cursor
 "
 " Select everything between curly braces:
 " vi} The curly brace is the delimiter
 "
 " Select a whole code block:
 " vip (paragraph)
+"
+" Select everything in a tag (for example: <b>foobar</b>): vit
 "
 " Go forward one sentence: ) , backwards: (
 " 
@@ -131,9 +146,48 @@ vmap <leader>> >gv
 "
 " Add a file in NerdTree: m (enter fs menu) a
 " Select everything in a file: gg vG
+"
+" leader z to fold search results, leader iz to go back
+"
+" ctrl+b screen up, ctrl+f screen down
+"
+" `. goes back to the last edit
+"
+" I edit where the first char of the line is
+"
+" R replace mode, replace everything what's there before
+"
+" C change a line
+"
+" G join a line
+"
+" Go to buffer number 4: :b4
+"
+" d/bacon/e - delete the line with bacon in it
+" y/NerdTree/ - yank everything until "NerdTree"
+"
+" !%s/bacon/lettuce/ - replace every bacon with lettuce, add g to do it file
+" global
+"
+" Show all keybindings: :map (without arguments)
+"
+" abbreviations - :iab teh the
 colorscheme railscasts
 
 " searchfold.vim settings
 :let g:searchfold_foldlevel = 1 
 ":let g:searchfold_maxdepth = 7
 "
+" Modify shell to source the ,bash_profile
+set shell=bash\ --login
+
+" Taglist settings
+"
+" Show only functions and classes in php
+let tlist_php_settings = 'php;c:class;f:function'
+
+" Exit if taglist is the only open window
+let Tlist_Exit_OnlyWindow = 1
+
+" Start at the right side of the windows
+let Tlist_Use_Right_Window   = 1
