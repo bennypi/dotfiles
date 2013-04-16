@@ -60,6 +60,17 @@ execute pathogen#infect()
 map <C-e> :NERDTreeToggle<CR>
 map <C-t> :FufCoverageFile<CR>
 map <C-b> :FufBuffer<CR>
+if has("gui_running")
+	" C-Space seems to work under gVim on both Linux and win32
+	inoremap <C-Space> <C-n>
+else " no gui
+	if has("unix")
+	  inoremap <Nul> <C-n>
+  else
+	 " I have no idea of the name of Ctrl-Space elsewhere
+  endif
+endif
+
 nnoremap <F3> :TlistToggle<CR>
 nnoremap <F4> :MRU<CR>
 
@@ -179,7 +190,7 @@ colorscheme railscasts
 ":let g:searchfold_maxdepth = 7
 "
 " Modify shell to source the ,bash_profile
-set shell=bash\ --login
+" set shell=bash\ --login
 
 " Taglist settings
 "
