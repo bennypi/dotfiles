@@ -2,6 +2,9 @@ set encoding=utf-8    " Set default encoding to UTF-8
 " Enable 256 colors
 set t_Co=256
 
+" Enable visual bell instead of system bell
+set vb
+
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 " current pos
@@ -16,6 +19,8 @@ set number
 " indentation
 set smartindent
 set autoindent
+" /g modifier is the default
+set gdefault
 
 " change working directory automatically
 
@@ -73,6 +78,7 @@ endif
 
 nnoremap <F3> :TlistToggle<CR>
 nnoremap <F4> :MRU<CR>
+nnoremap <F5> :TMiniBufExplorer<CR>
 
 map <leader>w :w<CR>
 imap <leader>w <esc><C-w>
@@ -84,6 +90,16 @@ map <leader>Q :q!<CR>
 imap <leader>Q <esc><leader>Q
 
 map <leader>q :q<CR>
+
+" Buffer navigation with Shift + Arrow L/R
+map <S-Left> :bprev<CR>
+map <S-Right> :bnext<CR>
+
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-L> <C-W>l<C-W>_
+map <C-H> <C-W>h<C-W>_
+map <C-K> <C-W>k<C-W>_
 
 " emulate the cmd+r behaviour (run) for different files:
 autocmd filetype tex,plaintex map <leader>r \ll
@@ -103,6 +119,9 @@ nmap <leader>< <<
 nmap <leader>> >>
 vmap <leader>< <gv
 vmap <leader>> >gv
+" mark bold
+vmap <leader>b S}i\textbf
+vmap <leader>i S}i\textit
 
 
 " Execute shell comand
@@ -180,6 +199,9 @@ vmap <leader>> >gv
 " !%s/bacon/lettuce/ - replace every bacon with lettuce, add g to do it file
 " global
 "
+" reload snippets:
+" :call ReloadAllSnippets()
+"
 " Show all keybindings: :map (without arguments)
 "
 " abbreviations - :iab teh the
@@ -202,3 +224,4 @@ let Tlist_Exit_OnlyWindow = 1
 
 " Start at the right side of the windows
 let Tlist_Use_Right_Window   = 1
+
