@@ -86,8 +86,8 @@ imap <leader>w <esc><C-w>
 map <leader>wq :wq<CR>
 imap <leader>wq <esc><leader>wq
 
-map <leader>Q :q!<CR>
-imap <leader>Q <esc><leader>Q
+nmap <leader>Q :q!<CR>
+" imap <leader>Q <esc><leader>Q
 
 map <leader>q :q<CR>
 

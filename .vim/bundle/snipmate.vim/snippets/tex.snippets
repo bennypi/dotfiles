@@ -118,7 +118,7 @@ snippet *
 snippet ol
 	\overline{${1:text}}
 snippet os
-	\overset{\text{${1:text}}{${2:value}}
+	\overset{\text{${1:text}}}{${2:value}}
 snippet sum
 	\sum_{i=${1:start}^${2:end} ${3:term}}
 snippet =
@@ -149,3 +149,16 @@ snippet la
 	\land 
 snippet n
 	\neg 
+snippet inc
+	\includegraphics{${1:path}}
+snippet figure
+	\begin{figure}[H]
+	\begin{center}
+	\leavevmode
+	\includegraphics[scale=${1:scale}]{${2:path}}
+	\end{center}
+	\vspace{-15pt}
+	\caption{${3:caption}}
+	\label{fig:${4:label}}
+	\end{figure}
+
