@@ -225,3 +225,5 @@ let Tlist_Exit_OnlyWindow = 1
 " Start at the right side of the windows
 let Tlist_Use_Right_Window   = 1
 
+" Enable C++ Omni Completion
+" au BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.cc set omnifunc=omni#cpp#complete#Main
