@@ -22,6 +22,8 @@ set autoindent
 " /g modifier is the default
 set gdefault
 
+set modeline
+
 " change working directory automatically
 
 set tabstop=2
@@ -123,6 +125,7 @@ vmap <leader>> >gv
 vmap <leader>b S}i\textbf
 vmap <leader>i S}i\textit
 
+nmap <leader>i A\\<CR>\item 
 
 " Execute shell comand
 " %! date
@@ -227,3 +230,6 @@ let Tlist_Use_Right_Window   = 1
 
 " Enable C++ Omni Completion
 " au BufNewFile,BufRead,BufEnter *.cpp,*.hpp,*.cc set omnifunc=omni#cpp#complete#Main
+"
+" Define markdown Filetype
+au BufRead,BufNewFile *.md set filetype=markdown
