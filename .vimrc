@@ -22,6 +22,7 @@ set autoindent
 " /g modifier is the default
 set gdefault
 
+" parse modelines
 set modeline
 
 " change working directory automatically
