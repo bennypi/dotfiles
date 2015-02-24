@@ -234,3 +234,6 @@ let Tlist_Use_Right_Window   = 1
 "
 " Define markdown Filetype
 au BufRead,BufNewFile *.md set filetype=markdown
+
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
