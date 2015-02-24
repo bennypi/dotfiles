@@ -3,7 +3,7 @@ set encoding=utf-8    " Set default encoding to UTF-8
 set t_Co=256
 
 " Enable visual bell instead of system bell
-set vb
+"set vb
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
